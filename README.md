@@ -1,31 +1,37 @@
-Install docker
+# Dockerized Rails app with Neo4j db
 
-Clone this repo
+## Install docker
+https://docs.docker.com/engine/installation/
 
-Run:
-docker-compose build
+## How to Run
+Make sure you are in this folder's directory
 
-Then:
-docker-compose up
+### Build The Docker Containers
+`docker-compose build`
 
-To stop:
-docker-compose down
+After that is done running, to start the container run:
+`docker-compose up`
 
-App can be found at:
-localhost:3000
+To stop the container run the following:
+`docker-compose down`
 
-Neo4j Browser at:
-localhost:7474
+**Do not use Ctrl-C to stop the container**
 
-INFO:
+### The rails app can be found at:
+http://localhost:3000/
+
+### The Neo4j Browser can be found at:
+http://localhost:7474
+
+## Migration/Model Information
 Anytime you create a new model or have a Neo4j::PendingMigrationError,
 you need to do the following:
 
-Find your container name by doing:
-docker ps
+### Find your container name by doing:
+`docker ps`
 
-Run the following and replace <container_name> with that name:
-docker exec -ti <container_name> bash
+### Run the following and replace 'container_name' with that name:
+`docker exec -ti 'container_name' bash`
 
-that command will open a bash inside of the running container then you need to type the following command:
-rake neo4j:migrate
+### That command will open a bash inside of the running container then you need to type the following command:
+`rake neo4j:migrate`
