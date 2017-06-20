@@ -1,22 +1,137 @@
 <h1>People</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Born</th>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @people.each do |person| %>
+  <h2> <%= person.name %> (<%= person.born %>) </h2>
 
-  <tbody>
-    <% @people.each do |person| %>
-      <tr>
-        <td><%= person.born %></td>
-        <td><%= person.name %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <% if person.actedIn.first %>
+    <h3> Acted In </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Released</th>
+          <th colspan="10"></th>
+        </tr>
+      </thead>
 
-<br>
+      <tbody>
+        <% person.actedIn.each do |movie| %>
+          <tr>
+            <td><%= movie.title %></td>
+            <td><%= movie.released %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+
+  <% if person.directed.first %>
+    <h3> Directed </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Released</th>
+          <th colspan="10"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% person.directed.each do |movie| %>
+          <tr>
+            <td><%= movie.title %></td>
+            <td><%= movie.released %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+
+  <% if person.produced.first %>
+    <h3> Produced </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Released</th>
+          <th colspan="10"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% person.produced.each do |movie| %>
+          <tr>
+            <td><%= movie.title %></td>
+            <td><%= movie.released %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+
+  <% if person.wrote.first %>
+    <h3> Wrote </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Released</th>
+          <th colspan="10"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% person.wrote.each do |movie| %>
+          <tr>
+            <td><%= movie.title %></td>
+            <td><%= movie.released %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+
+  <% if person.reviewed.first %>
+    <h3> Reviewed </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Released</th>
+          <th colspan="10"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% person.reviewed.each do |movie| %>
+          <tr>
+            <td><%= movie.title %></td>
+            <td><%= movie.released %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+
+  <% if person.follows.first %>
+    <h3> Follows </h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Year Born</th>
+          <th colspan="10"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% person.follows.each do |followed| %>
+          <tr>
+            <td><%= followed.name %></td>
+            <td><%= followed.born %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+<% end %>
