@@ -14,5 +14,7 @@
 :constraints:
 - CONSTRAINT ON ( `neo4j::migrations::schemamigration`:`Neo4j::Migrations::SchemaMigration`
   ) ASSERT `neo4j::migrations::schemamigration`.migration_id IS UNIQUE
+- CONSTRAINT ON ( movie:Movie ) ASSERT movie.uuid IS UNIQUE
 :indexes: []
-:versions: []
+:versions:
+- '20170620203739'
