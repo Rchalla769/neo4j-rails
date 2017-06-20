@@ -25,13 +25,7 @@ http://localhost:7474
 
 ## Migration/Model Information
 Anytime you create a new model or have a Neo4j::PendingMigrationError,
-you need to do the following:
+you need to run the run_migrations script. Make sure you are inside the app directory.
 
-### Find your container name by doing:
-`docker ps`
-
-### Run the following and replace 'container_name' with that name:
-`docker exec -ti 'container_name' bash`
-
-### That command will open a bash inside of the running container then you need to type the following command:
-`rake neo4j:migrate`
+### Type the following into your terminal and hit enter:
+`./run_migrations.sh`
